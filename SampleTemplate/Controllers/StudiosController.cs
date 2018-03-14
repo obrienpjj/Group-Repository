@@ -4,11 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace SampleTemplate.Controllers
+namespace StudioBookingApp.Controllers
 {
-    public class QuizController : Controller
+    public class StudiosController : Controller
     {
-        // GET: Quiz
+        // GET: Studios
         public ActionResult Index()
         {
             return View();
