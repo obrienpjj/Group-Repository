@@ -2,21 +2,27 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
 
 namespace StudioBookingApp.Models
 {
     public class User
     {
-        public string Name { get; set; }
-        public string DateOfBirth { get; set; }
+        [Required]
+        public string UserName { get; set; }  //Primary Key in DB
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public DateTime DateOfBirth { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
         public string Phone { get; set; }
 
-        public User(string name, string dob, string email, string password, string phone)
+        public User(string userID, string firstName, string lastName, DateTime dob, string email, string password, string phone)
 
         {
-            Name = name;
+            UserName = userID;
+            FirstName = firstName;
+            LastName = lastName;
             DateOfBirth = dob;
             Email = email;
             Password = password;

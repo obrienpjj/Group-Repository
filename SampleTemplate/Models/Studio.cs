@@ -2,27 +2,30 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
 
 namespace StudioBookingApp.Models
 {
     public class Studio
     {
+        [Required]
         public string StudioID { get; set; }
         public string Name { get; set; }
-        public string Owner { get; set; }
+        public string Image { get; set; }
+        public string Type { get; set; }
+        public string Description { get; set; }
         public decimal HourlyRate { get; set; }
-        public string Address { get; set; }
-        public string RoomImage { get; set; }
+        
 
         public Studio() { }
-        public Studio(string studioID, string name, string owner, decimal hourlyRate, string address, string roomImage) 
+        public Studio(string studioID, string name, string studioImage, string type, string description, decimal hourlyRate) 
         {
             StudioID = studioID;
             Name = name;
-            Owner = owner;
+            Type = type;
             HourlyRate = hourlyRate;
-            Address = address;
-            RoomImage = roomImage;
+            Image = studioImage;
+            Description = description;
         }
     }
 }

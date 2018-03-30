@@ -119,9 +119,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AddData.cs" />
+    <Compile Include="Models\DAO.cs" />
+    <Compile Include="Models\GetData.cs" />
     <Compile Include="Models\Reservation.cs" />
+    <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Studio.cs" />
-    <Compile Include="Models\Studios.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
