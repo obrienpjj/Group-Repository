@@ -122,6 +122,7 @@
     <Compile Include="Models\AddData.cs" />
     <Compile Include="Models\DAO.cs" />
     <Compile Include="Models\GetData.cs" />
+    <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Studio.cs" />

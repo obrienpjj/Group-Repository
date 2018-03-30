@@ -9,7 +9,7 @@ namespace StudioBookingApp.Models
     public class User
     {
         [Required]
-        public string UserName { get; set; }  //Primary Key in DB
+        public string UserID { get; set; }  //Primary Key in DB
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
@@ -20,7 +20,7 @@ namespace StudioBookingApp.Models
         public User(string userID, string firstName, string lastName, DateTime dob, string email, string password, string phone)
 
         {
-            UserName = userID;
+            UserID = userID;
             FirstName = firstName;
             LastName = lastName;
             DateOfBirth = dob;
