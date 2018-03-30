@@ -42,19 +42,11 @@ CREATE TABLE StudioTable(
 StudioID VARCHAR(50) NOT NULL PRIMARY KEY,
 StudioName VARCHAR(20),
 StudioImage VARBINARY(MAX),
-StudioStatus VARCHAR(30))
+StudioStatus VARCHAR(30),
+StudioType VARCHAR(20),
+StudioDescription VARCHAR(200),
+StudioHourlyRate DECIMAL(5,2))
 EXEC uspCreateStudioTable
-GO
-
-CREATE PROC uspCreateStudioType
-AS
-CREATE TABLE StudioTypeTable(
-StudioTypeID VARCHAR(50) NOT NULL PRIMARY KEY,
-StudioTypeDescription VARCHAR(200),
-StudioStatus VARCHAR(20),
-StudioPrice DECIMAL(5,2),
-StudioID VARCHAR(50) FOREIGN KEY REFERENCES StudioTable(StudioID))
-EXEC uspCreateStudioType
 GO
 
 CREATE PROC uspCreateReservationTable

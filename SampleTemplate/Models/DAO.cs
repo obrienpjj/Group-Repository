@@ -65,7 +65,7 @@ namespace SampleTemplate.Models
             }
             catch (FormatException ex1)
             {
-                message = ex1.Message
+                message = ex1.Message;
             }
             finally
             {
