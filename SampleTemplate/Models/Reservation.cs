@@ -11,7 +11,7 @@ namespace StudioBookingApp.Models
         [Required]
         public string ReservationID { get; set; }
         [Required]
-        public string UserName{ get; set; }
+        public string UserID{ get; set; }
         [Required]
         public string StudioID { get; set; }
 
@@ -21,10 +21,10 @@ namespace StudioBookingApp.Models
 
         public Reservation() { }
 
-        public Reservation(string reservationID, string userName, string studioID, DateTime startTime, DateTime endTime, decimal cost)
+        public Reservation(string reservationID, string userID, string studioID, DateTime startTime, DateTime endTime, decimal cost)
         {
             ReservationID = ReservationID;
-            UserName = userName;
+            UserID = userID;
             StudioID = studioID;
             StartTime = startTime;
             EndTime = endTime;

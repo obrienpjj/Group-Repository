@@ -50,7 +50,7 @@ namespace SampleTemplate.Models
                     password = reader["Password"].ToString();
                     if (Crypto.VerifyHashedPassword(password, user.Password))
                     {
-                        firstName = reader["First Name"].ToString(); //The text in quotes needs to match what is in the Sql Stored Procedure
+                        firstName = reader["FirstName"].ToString(); //The text in quotes needs to match what is in the Sql Stored Procedure
 
                     }
                     else
