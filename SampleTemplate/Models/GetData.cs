@@ -68,7 +68,7 @@ namespace SampleTemplate.Models
                 {
                     reservation.ReservationID = reader[0].ToString();
                     reservation.StudioID = reader[1].ToString();
-                    reservation.UserName = reader[2].ToString();
+                    reservation.UserID = reader[2].ToString();
                     reservation.StartTime = DateTime.Parse(reader[3].ToString());
                     reservation.EndTime = DateTime.Parse(reader[4].ToString());
                     reservation.Cost = Decimal.Parse(reader[5].ToString());
