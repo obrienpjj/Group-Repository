@@ -16,6 +16,8 @@ namespace SampleTemplate.Models
     {
         string message;
         
+        public GetData() { }
+
         public List<Studio> ShowAllStudios()
         {
             List<Studio> list = new List<Studio>();

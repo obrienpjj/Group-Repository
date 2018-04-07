@@ -8,6 +8,6 @@ namespace SampleTemplate.Models
     public enum Role
     {
         User,
-        Admin
+        Staff
     }
 }
