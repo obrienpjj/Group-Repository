@@ -16,21 +16,26 @@ namespace SampleTemplate.Models
     {
         string message; 
 
+        public AddData() { }
+
         public int InsertUser(User user)
         {
             int count = 0;
-            string password;
+            //string password;
 
-            SqlCommand cmd = new SqlCommand("uspInsertUser", openConnection());
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@ID", user.UserID);
-            cmd.Parameters.AddWithValue("@first", user.FirstName);
-            cmd.Parameters.AddWithValue("@last", user.LastName);
-            cmd.Parameters.AddWithValue("@dateOfBirth", user.DateOfBirth);
-            cmd.Parameters.AddWithValue("@email", user.Email);
-            password = Crypto.HashPassword(user.Password);
-            cmd.Parameters.AddWithValue("@password", password);
-            cmd.Parameters.AddWithValue("@phone", user.Phone);
+            SqlCommand cmd = new SqlCommand("INSERT INTO UserTable (FirstName, LastName, AddressLine1, AddressLine2, County, EIRCode, Email, Phone, Pass, UserType) VALUES (@FirstName, @LastName, @AddressLine1, @AddressLine2, @County, @EIRCode, @Email, @Phone, @Pass, @UserType)", openConnection());
+            //cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@FirstName", user.FirstName);
+            cmd.Parameters.AddWithValue("@LastName", user.LastName);
+            cmd.Parameters.AddWithValue("@AddressLine1", user.AddressLine1);
+            cmd.Parameters.AddWithValue("@AddressLine2", user.AddressLine2);
+            cmd.Parameters.AddWithValue("@County", user.County);
+            cmd.Parameters.AddWithValue("@EIRCode", user.Eircode);
+            cmd.Parameters.AddWithValue("@Email", user.Email);
+            cmd.Parameters.AddWithValue("@Phone", user.Phone);
+            //password = Crypto.HashPassword(user.Password);
+            cmd.Parameters.AddWithValue("@Pass", user.Password);
+            cmd.Parameters.AddWithValue("@UserType", user.Type);
 
             try
             {

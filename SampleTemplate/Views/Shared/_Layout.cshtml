@@ -15,6 +15,7 @@
         <nav>
             <ul>
                 @*Home is text to be visible, Index is the ActionResult and Home is the Controller*@
+                <li>@Html.ActionLink("Login", "Login", "User")</li>
                 <li>@Html.ActionLink("Home", "Index", "Home")</li>
                 <li>@Html.ActionLink("Profile", "Index", "Profile")</li>
                 <li>@Html.ActionLink("Studios", "Index", "Studios")</li>
@@ -24,7 +25,9 @@
         </nav>
         <main>
             @RenderBody()
-           
+            @RenderPage("LoginRegister.cshtml")
+            @RenderSection("logged", false)
+
         </main>
    
         <footer>
