@@ -3,5 +3,21 @@
     ViewBag.Title = "Studios";
 }
 
-<h2>Studios</h2>
+<h2 class="welcomehall">OUR STUDIOS</h2>
+<div>
+    @foreach (var studio in Model)
+    {
+        <section>
+            <img alt="studio.RoomImage" src="" width="200" height="200" class="right" />
+            <p>
+                <h3>@studio.StudioName</h3>
+                <span class="newline">@studio.StudioName</span>
+                <span class="newline">@studio.HourlyRate</span>
+                <span class="newline">@studio.Description</span>
+            </p>
+            <br class="clear" />
+        </section>
+        <hr />
+    }
+</div>
 

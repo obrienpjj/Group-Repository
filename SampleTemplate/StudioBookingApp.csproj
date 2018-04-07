@@ -93,11 +93,9 @@
     <Content Include="App_Data\StudioBookingApp_log.ldf">
       <DependentUpon>StudioBookingApp.mdf</DependentUpon>
     </Content>
-    <Content Include="Content\Images\CPlus.png" />
-    <Content Include="Content\Images\Java.png" />
-    <Content Include="Content\Images\logo.gif" />
-    <Content Include="Content\Images\Programming.png" />
-    <Content Include="Content\Images\Python.png" />
+    <Content Include="Content\Images\theblueroom.png" />
+    <Content Include="Content\Images\theredroom.jpg" />
+    <Content Include="Content\Images\theyellowroom.jpg" />
     <Content Include="Content\Styles.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
