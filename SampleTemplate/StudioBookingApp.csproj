@@ -93,6 +93,7 @@
     <Content Include="App_Data\StudioBookingApp_log.ldf">
       <DependentUpon>StudioBookingApp.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\Images\Studio_W_Drums.jpg" />
     <Content Include="Content\Images\theblueroom.png" />
     <Content Include="Content\Images\theredroom.jpg" />
     <Content Include="Content\Images\theyellowroom.jpg" />
