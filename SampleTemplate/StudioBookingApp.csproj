@@ -124,11 +124,11 @@
     <Compile Include="Models\AddData.cs" />
     <Compile Include="Models\ContactModel.cs" />
     <Compile Include="Models\DAO.cs" />
+    <Compile Include="Models\DateCheck.cs" />
     <Compile Include="Models\GetData.cs" />
     <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\Role.cs" />
-    <Compile Include="Models\Slot.cs" />
     <Compile Include="Models\Studio.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -152,6 +152,7 @@
     <Content Include="Views\User\Status.cshtml" />
     <Content Include="Views\Shared\LoginRegister.cshtml" />
     <Content Include="Views\Booking\Index.cshtml" />
+    <Content Include="Views\Booking\FinishBook.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

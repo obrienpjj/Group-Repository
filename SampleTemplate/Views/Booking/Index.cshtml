@@ -1,30 +1,26 @@
-﻿@model StudioBookingApp.Models.Reservation
+﻿
+@model StudioBookingApp.Models.Reservation
 @{
     ViewBag.Title = "Index";
 }
-
 <h2>Index</h2>
-
 <div>
-    @using (Html.BeginForm("Book", "Booking", FormMethod.Post))
+    @using (Html.BeginForm("Index", "Booking", FormMethod.Post))
     {
         <p>
             @Html.ValidationSummary(false, "", new { @class = "error" })
         </p>
         <p>
-            <span class="newline">@Html.LabelFor(u => u.Email)</span>
-            @Html.TextBoxFor(u => u.Email)
+            <span class="newline">@Html.LabelFor(u => u.DateCheck)</span>
+            @Html.EditorFor(u => u.DateCheck)
         </p>
         <p>
-            <span class="newline">@Html.LabelFor(u => u.Password)</span>
-            @Html.TextBoxFor(u => u.Password)
+            <input type="submit" value="Check Date" />
         </p>
-        <p>
-            <span class="newline">@Html.LabelFor(u => u.Type)</span>
-            @Html.EnumDropDownListFor(u => u.Type, new { style = "width:160px" })
-        </p>
-        <p>
-            <input type="submit" value="Login" />
-        </p>
+        @RenderPage("FinishBook.cshtml")
+        @*@RenderSection("logged", false)*@
     }
+
 </div>
+
+

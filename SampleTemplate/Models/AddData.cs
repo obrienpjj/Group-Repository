@@ -84,14 +84,12 @@ namespace SampleTemplate.Models
         {
             int count = 0;
 
-            SqlCommand cmd = new SqlCommand("uspInsertStudio", openConnection());
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@ReservationID", reservation.ReservationID);
+            SqlCommand cmd = new SqlCommand("INSERT INTO ReservationTable (UserID, StudioID, Slot, Date) VALUES (@UserID, @StudioID, @Slot, @Date)", openConnection());
+            
             cmd.Parameters.AddWithValue("@UserID", reservation.UserID);
             cmd.Parameters.AddWithValue("@StudioID", reservation.StudioID);
-            cmd.Parameters.AddWithValue("@StartTime", reservation.StartTime);
-            cmd.Parameters.AddWithValue("@EndTime", reservation.EndTime);
-            cmd.Parameters.AddWithValue("@Cost", reservation.Cost);
+            cmd.Parameters.AddWithValue("@Slot", reservation.BookTime);
+            cmd.Parameters.AddWithValue("@Date", reservation.Date);
 
             try
             {

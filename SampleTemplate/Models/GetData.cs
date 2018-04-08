@@ -12,10 +12,10 @@ using System.Web.Configuration;
 
 namespace SampleTemplate.Models
 {
-    public class GetData:DAO
+    public class GetData : DAO
     {
         string message;
-        
+
         public GetData() { }
 
         public List<Studio> ShowAllStudios()
@@ -71,8 +71,6 @@ namespace SampleTemplate.Models
                     reservation.ReservationID = reader[0].ToString();
                     reservation.StudioID = reader[1].ToString();
                     reservation.UserID = reader[2].ToString();
-                    reservation.StartTime = DateTime.Parse(reader[3].ToString());
-                    reservation.EndTime = DateTime.Parse(reader[4].ToString());
                     reservation.Cost = Decimal.Parse(reader[5].ToString());
                 }
             }
@@ -87,7 +85,100 @@ namespace SampleTemplate.Models
 
             return reservation;
         }
-        
+
+        public IEnumerable<string> GetSlots(DateTime date, string StudioID)
+        {
+            Reservation reservation = new Reservation();
+            SqlDataReader reader;
+            IEnumerable<string> islots;
+            List<string> slots = new List<string>();
+
+            string adjustedDate = date.ToShortDateString();
+
+            SqlCommand cmd = new SqlCommand("SELECT Slot FROM Reservation Table WHERE @date=Date, @StudioID=StudioID", openConnection());
+            cmd.Parameters.AddWithValue("@date", adjustedDate);
+            cmd.Parameters.AddWithValue("@StudioID", StudioID);
+
+            try
+            {
+                reader = cmd.ExecuteReader();
+
+                //while (reader.Read())
+                //{
+                //    if (reader[0].ToString() == "Morning")
+                //    {
+
+                //        slots = new List<Slot>
+                //        {
+                //            Slot.Afternoon
+                //        };
+
+                //    }
+                //    else if (reader[0].ToString() == "Afternoon")
+                //    {
+                //        slots = new List<Slot>
+                //        {
+                //            Slot.Morning
+                //        };
+                //    }
+                //    else
+                //    {
+                //        slots = new List<Slot>
+                //        {
+                //            Slot.Morning,
+                //            Slot.Afternoon,
+                //            Slot.Daylong
+                //        };
+                //    }
+                //}
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                closeConnnection();
+            }
+            slots = new List<string>
+                        {
+                            "Afternoon"
+                        };
+            islots = slots.AsEnumerable<string>();
+            return islots;
+
+        }
+
+        public string GetUserID(string firstName)
+        {
+            string UserID = "";
+            SqlDataReader reader;
+            SqlCommand cmd = new SqlCommand("SELECT UserID FROM UserTable WHERE @firstName=FirstName", openConnection());
+
+            cmd.Parameters.AddWithValue("@firstName", firstName);
+
+            try
+            {
+                reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Studio studio = new Studio();
+
+                    UserID = reader[0].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                message = ex.Message;
+            }
+            finally
+            {
+                closeConnnection();
+            }
+            return UserID;
+
+        }
 
     }
 }
