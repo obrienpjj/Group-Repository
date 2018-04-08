@@ -1,79 +1,165 @@
-﻿#wrapper{
-    width:70%;
-    margin:0 auto;
-    padding:0;
+﻿body {
+    background-color: #1D191A;
+    font-family: Lato;
+    font-size: 23px;
 }
 
-header{
-    height:100px;
-    padding-left:10px;
-    padding-right:10px;
-    padding-top:15px;
-    padding-bottom:10px;
-    background-color:darkslategray;
-    color:white;
-}
-.right{
-    float:right;
-    margin:5px;
+#wrapper {
+    width: 100%;
+    margin: 0px;
 }
 
-footer{
-    text-align:center;
+.wrapper2 {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-nav{
-    height:25px;
-    background-color:lightgray;
-    padding-top:0.5px;
-    padding-bottom:15px;
-    /*color:darkslateblue;*/
+.welcomehall {
+    text-align: center;
+    font-size: 70px;
+    padding-top: 80px;
+    border-bottom: white solid 15px;
+    /* height:300px;
+    background: url('~/Content/Images/darkroom.jpg') no-repeat 0 -80px;*/
 }
 
-nav ul{
-    list-style-type:none;
+.heading {
+    font-size: 40px;
+    text-shadow: 2px 2px #9b1515;
 }
 
-nav ul li{
-    display:inline;
-    margin-left:10px;
+.StandardParagraph {
+    padding: 20px;
+    margin: 20px;
 }
 
-nav ul li a:link{
-    color:darkslategray;
-    text-decoration:none;
+.standardInput {
+    width: 500px;
 }
 
-nav ul li a:visited{
-    color:darkblue;
-}
-/*Styling second level list*/
-nav li ul{
-    display:none;
-    position:absolute;
-}
-nav li:hover ul{
-    display:block;
+header {
+    height: 180px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    color: #7E2123;
+    text-align: left;
 }
 
-nav li:hover{
-    background-color:royalblue;
+#newslettersignup {
+    float: left;
+    background: #9b1515;
+    color: white;
+    padding: 0px 18px;
+    margin: 20px 0px 20px 5px;
+    width: 6%;
+    font-size: 15px;
+    opacity: .7;
 }
 
-main{
-    color:darkslategray;
-    border:2px solid darkgray;
-    border-radius:10px;
-    padding:10px;
-    min-height:500px;
-    height:auto;
+#loginbutton {
+    float: right;
+    background: #9b1515;
+    color: white;
+    padding-right: 10px;
+    margin: 20px 5px 20px 0px;
+    width: 6%;
+    font-size: 13px;
+    opacity: .7;
 }
 
-.newline::after{
-    content:"\A";
-    white-space:pre;
+.right {
+    float: right;
+    margin: 5px;
 }
 
-.clear{
-    clear:both;
+footer {
+    text-align: center;
+}
+
+
+
+main {
+    background-color: #F29715;
+    color: white;
+    min-height: 350px;
+    height: auto;
+    margin: 0px;
+    text-align: center;
+}
+
+
+nav {
+    height: 145px;
+    padding-top: 0.5px;
+    padding-bottom: 15px;
+    margin-bottom: 100px;
+}
+
+    nav ul {
+        list-style-type: none;
+        padding-top: 60px;
+        text-align: center;
+    }
+
+        nav ul li {
+            display: inline-block;
+        }
+
+            nav ul li a:link {
+                color: darkslategray;
+                text-decoration: none;
+            }
+
+/*nav ul li a:visited {
+                color: darkblue;
+            }*/
+/Styling second level list/
+nav li ul {
+    display: none;
+    position: absolute;
+}
+
+nav ul li a {
+    text-align: center;
+    color: #F29715;
+    font-size: 18px;
+    padding: 40px;
+    margin: 0px 15px;
+    background: #9b1515;
+    color: #F29715;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    opacity: .70;
+}
+
+    nav ul li a:hover {
+        text-align: center;
+        color: #9b1515;
+        font-size: 18px;
+        background-color: #F29715;
+        transition: .2s ease-out;
+    }
+
+.newline::after {
+    content: "\A";
+    white-space: pre;
+}
+
+.clear {
+    clear: both;
+}
+
+
+/******* HomePage ********/
+
+
+
+
+/******* STUDIOS ********/
+#bookNowButton {
+    margin: 30px 425px 30px auto;
 }
