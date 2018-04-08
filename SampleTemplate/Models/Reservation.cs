@@ -8,7 +8,7 @@ namespace StudioBookingApp.Models
 {
     public class Reservation
     {
-        [Required]
+        
         public string ReservationID { get; set; }
         [Required]
         public string UserID{ get; set; }

@@ -19,7 +19,7 @@ namespace SampleTemplate.Models
 
         public DAO()
         {
-            conn = new SqlConnection();
+            conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\obrie\\Documents\\College Stuff\\B8IT121\\Visual Studio Files\\Group Repository\\SampleTemplate\\App_Data\\StudioBookingApp.mdf\"; Integrated Security = True;");
         }
         public SqlConnection openConnection()
         {
@@ -38,17 +38,19 @@ namespace SampleTemplate.Models
         {
             string password, firstName = null;
             SqlDataReader reader;
-            SqlCommand cmd = new SqlCommand("uspGetUser", openConnection()); //Need to make this procedure, return student list for a given email address
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            SqlCommand cmd = new SqlCommand("SELECT * FROM UserTable WHERE @email=Email", openConnection()); //Need to make this procedure, return student list for a given email address
+            //cmd.CommandType = System.Data.CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@email", user.Email);
+
+            
 
             try
             {
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    password = reader["Password"].ToString();
-                    if (Crypto.VerifyHashedPassword(password, user.Password))
+                    password = reader["Pass"].ToString();
+                    if (password==user.Password)
                     {
                         firstName = reader["FirstName"].ToString(); //The text in quotes needs to match what is in the Sql Stored Procedure
 

@@ -1,23 +1,22 @@
-﻿
+﻿@model IEnumerable<StudioBookingApp.Models.Studio>
 @{
     ViewBag.Title = "Studios";
 }
-
-<h2 class="welcomehall">OUR STUDIOS</h2>
+<h2 class="heading">OUR STUDIOS</h2>
 <div>
     @foreach (var studio in Model)
     {
         <section>
-            <img alt="studio.RoomImage" src="" width="200" height="200" class="right" />
+            <img id="studioChangingImage" alt="@studio.Image" src="~/Content/Images/@studio.Image" width="400" class="right" />
             <p>
-                <h3>@studio.StudioName</h3>
-                <span class="newline">@studio.StudioName</span>
+                <h3>@studio.Name</h3>
+                <span class="newline">@studio.Name</span>
                 <span class="newline">@studio.HourlyRate</span>
                 <span class="newline">@studio.Description</span>
+                <img id="bookNowButton" alt="@studio.Image" src="~/Content/Images/booknow.png" width="220" class="right" />
             </p>
             <br class="clear" />
         </section>
         <hr />
     }
 </div>
-
