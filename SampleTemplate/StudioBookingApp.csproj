@@ -111,6 +111,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
@@ -121,11 +122,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AddData.cs" />
+    <Compile Include="Models\ContactModel.cs" />
     <Compile Include="Models\DAO.cs" />
     <Compile Include="Models\GetData.cs" />
     <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\Slot.cs" />
     <Compile Include="Models\Studio.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -148,6 +151,7 @@
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\User\Status.cshtml" />
     <Content Include="Views\Shared\LoginRegister.cshtml" />
+    <Content Include="Views\Booking\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
