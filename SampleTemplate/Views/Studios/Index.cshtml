@@ -6,17 +6,20 @@
 <div>
     @foreach (var studio in Model)
     {
-        <section>
-            <img id="studioChangingImage" alt="@studio.Image" src="~/Content/Images/@studio.Image" width="400" class="right" />
-            <p>
-                <h3>@studio.Name</h3>
-                <span class="newline">@studio.Name</span>
-                <span class="newline">@studio.HourlyRate</span>
-                <span class="newline">@studio.Description</span>
+    <section>
+        <p><img id= "bookNowButton" alt = "@studio.Image" src = "data:image;base64,@System.Convert.ToBase64String(studio.Image)" width = "220" class="right" /></p>
+        <p>
+            <h3>@studio.Name</h3>
+            <span class="newline">@studio.Name</span>
+            <span class="newline">€@studio.HourlyRate per session (All day counts as two sessions)</span>
+            <span class="newline">@studio.Description</span>
+            @* I have modified the img so that it will get the picture from the DB *@
+            <a href="@Url.Action("Index", "Booking", new { session = studio.StudioID.ToString()})">
                 <img id="bookNowButton" alt="@studio.Image" src="~/Content/Images/booknow.png" width="220" class="right" />
-            </p>
-            <br class="clear" />
-        </section>
+            </a>
+        </p>
+        <br class="clear" />
+    </section>
         <hr />
     }
 </div>

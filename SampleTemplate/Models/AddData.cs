@@ -85,7 +85,11 @@ namespace SampleTemplate.Models
             int count = 0;
 
             SqlCommand cmd = new SqlCommand("INSERT INTO ReservationTable (UserID, StudioID, Slot, Date) VALUES (@UserID, @StudioID, @Slot, @Date)", openConnection());
-            
+
+            DateTime date = reservation.DateCheck;
+
+            string adjustedDate = date.ToString("d");
+
             cmd.Parameters.AddWithValue("@UserID", reservation.UserID);
             cmd.Parameters.AddWithValue("@StudioID", reservation.StudioID);
             cmd.Parameters.AddWithValue("@Slot", reservation.BookTime);

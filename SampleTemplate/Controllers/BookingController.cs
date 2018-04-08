@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace SampleTemplate.Controllers
+namespace StudioBookingApp.Controllers
 {
     public class BookingController : Controller
     {
@@ -14,8 +14,9 @@ namespace SampleTemplate.Controllers
         AddData addData = new AddData();
 
         // GET: Booking
-        public ActionResult Index()
+        public ActionResult Index(string session)
         {
+            Session["studio"] = session.ToString();
             //DateTime date = new DateTime();
             //GetData get = new GetData();
 
@@ -37,33 +38,37 @@ namespace SampleTemplate.Controllers
         [HttpPost]
         public ActionResult Index(Reservation reservation)
         {
-            Session["studio"] = "01";
+            //Session["studio"] = "01";
             GetData get = new GetData();
-            string StudioName = Session["studio"].ToString();
+            string StudioID = Session["studio"].ToString();
+            reservation.StudioID = Session["studio"].ToString();
 
-            IEnumerable<string> slots = get.GetSlots(reservation.DateCheck, StudioName);
+            IEnumerable<string> slots = get.GetSlots(reservation.DateCheck, StudioID);
             reservation.Available = slots;
 
-            List<string> slotss = new List<string>
-                        {
-                            //Slot.Morning,
-                            //Slot.Afternoon,
-                            "Daylong"
-                        };
 
-            reservation.Available = slotss.AsEnumerable<string>();
+
+            //List<string> slotss = new List<string>
+            //            {
+            //                //Slot.Morning,
+            //                //Slot.Afternoon,
+            //                "Daylong"
+            //            };
+
+            //reservation.Available = slotss.AsEnumerable<string>();
             Session["status"] = "clicked";
 
             return View("Index", reservation);
 
         }
-        
+
 
         [HttpPost]
-        public ActionResult Book(Reservation reservation)
+        public ActionResult BookBook(Reservation reservation)
         {
-            Session["name"] = "Jim";
-            reservation.UserID = getData.GetUserID(Session["name"].ToString());
+            //Session["name"] = "Jim";
+            reservation.UserID =getData.GetUserID(Session["name"].ToString());
+            //reservation.StudioID = "01"; /* Session["studio"].ToString();*/
             reservation.StudioID = Session["studio"].ToString();
 
             int count = 0;
@@ -79,7 +84,7 @@ namespace SampleTemplate.Controllers
                     ViewBag.Status = "Error! " + addData.message;
                 }
             }
-            return View("Login");
+            return RedirectToAction("Index", "Paypal", new { item_name_1 = "Studio", item_number_1 = "01", amount_1 = "1", quantity_1 = "1" });
         }
     }
 }
