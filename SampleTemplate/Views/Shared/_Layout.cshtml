@@ -8,30 +8,29 @@
 </head>
 <body>
     <div id="wrapper">
-   <header>
-       <img alt="logo" src="~/Content/Images/logo.gif" class="right" />
-       <h1>Welcome to My Site - Learning is Fun</h1>
-   </header>
-        <nav>
-            <ul>
-                @*Home is text to be visible, Index is the ActionResult and Home is the Controller*@
-                <li>@Html.ActionLink("Login", "Login", "User")</li>
-                <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                <li>@Html.ActionLink("Profile", "Index", "Profile")</li>
-                <li>@Html.ActionLink("Studios", "Index", "Studios")</li>
-                <li>@Html.ActionLink("About Us", "Index", "About")</li>
-                <li>@Html.ActionLink("Contact Us", "Index", "Contact")</li>
-            </ul>
-        </nav>
+        <header>
+            <nav>
+                <ul>
+                    @*Home is text to be visible, Index is the ActionResult and Home is the Controller*@
+                    <li>@Html.ActionLink("Login", "Login", "User")</li>
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Studios", "Index", "Studios")</li>
+                    <li>@Html.ActionLink("About Us", "Index", "About")</li>
+                    <li>@Html.ActionLink("Contact Us", "Index", "Contact")</li>
+                    @RenderPage("LoginRegister.cshtml")
+                </ul>
+            </nav>
+        </header>
+        
         <main>
             @RenderBody()
-            @RenderPage("LoginRegister.cshtml")
+            
             @RenderSection("logged", false)
 
         </main>
    
         <footer>
-            <p>&copy; @DateTime.Now.Year - Dublin Business School.</p>
+            <p>&copy; @DateTime.Now.Year - Legacy Studios</p>
             <hr />
         </footer>
     </div>

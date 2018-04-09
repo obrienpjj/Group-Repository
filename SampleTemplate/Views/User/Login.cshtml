@@ -6,25 +6,26 @@
 <h2>Login</h2>
 
 <div>
-    @using (Html.BeginForm("Login", "User", FormMethod.Post))
+    @*@using (Html.BeginForm("Login", "User", FormMethod.Post))*@
+    @using (Ajax.BeginForm("Login", "User", new AjaxOptions { UpdateTargetId = "result" }))
     {
-        <p>
-            @Html.ValidationSummary(false, "", new { @class = "error" })
-        </p>
-        <p>
-            <span class="newline">@Html.LabelFor(u => u.Email)</span>
-            @Html.TextBoxFor(u => u.Email)
-        </p>
-        <p>
-            <span class="newline">@Html.LabelFor(u => u.Password)</span>
-            @Html.TextBoxFor(u => u.Password)
-        </p>
-        <p>
-            <span class="newline">@Html.LabelFor(u => u.Type)</span>
-            @Html.EnumDropDownListFor(u => u.Type, new { style = "width:160px" })
-        </p>
-        <p>
-            <input type="submit" value="Login" />
-        </p>
+    <p>
+        @Html.ValidationSummary(false, "", new { @class = "error" })
+    </p>
+    <p>
+        <span class="newline">@Html.LabelFor(u => u.Email)</span>
+        @Html.TextBoxFor(u => u.Email)
+    </p>
+    <p>
+        <span class="newline">@Html.LabelFor(u => u.Password)</span>
+        @Html.TextBoxFor(u => u.Password)
+    </p>
+    <p>
+        <span class="newline">@Html.LabelFor(u => u.Type)</span>
+        @Html.EnumDropDownListFor(u => u.Type, new { style = "width:160px" })
+    </p>
+    <p>
+        <input type="submit" value="Login" />
+    </p>
     }
 </div>

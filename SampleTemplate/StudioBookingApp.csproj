@@ -93,6 +93,11 @@
     <Content Include="App_Data\StudioBookingApp_log.ldf">
       <DependentUpon>StudioBookingApp.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\Images\booknow.png" />
+    <Content Include="Content\Images\darkroom.jpg" />
+    <Content Include="Content\Images\getintouch.png" />
+    <Content Include="Content\Images\LegacyStudiosBuilding.jpg" />
+    <Content Include="Content\Images\paypalimage.png" />
     <Content Include="Content\Images\Studio_W_Drums.jpg" />
     <Content Include="Content\Images\theblueroom.png" />
     <Content Include="Content\Images\theredroom.jpg" />
@@ -114,6 +119,7 @@
     <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PayPalController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="Controllers\StudiosController.cs" />
@@ -126,9 +132,9 @@
     <Compile Include="Models\DAO.cs" />
     <Compile Include="Models\GetData.cs" />
     <Compile Include="Models\Payment.cs" />
+    <Compile Include="Models\PDTHolder.cs" />
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\Role.cs" />
-    <Compile Include="Models\Slot.cs" />
     <Compile Include="Models\Studio.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -152,6 +158,9 @@
     <Content Include="Views\User\Status.cshtml" />
     <Content Include="Views\Shared\LoginRegister.cshtml" />
     <Content Include="Views\Booking\Index.cshtml" />
+    <Content Include="Views\Booking\FinishBook.cshtml" />
+    <Content Include="Views\PayPal\Index.cshtml" />
+    <Content Include="Views\PayPal\Success.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

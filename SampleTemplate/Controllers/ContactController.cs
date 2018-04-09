@@ -17,20 +17,20 @@ namespace StudioBookingApp.Controllers
         // GET: Contact
         public ActionResult Index()
         {
-            if (System.IO.File.Exists(Server.MapPath("~/App_Data/feedback.xml")))
+            if (System.IO.File.Exists(Server.MapPath("~/App_Data/suggestions.xml")))
             {
                 ds = new DataSet();
-                ds.ReadXml(Server.MapPath("~/App_Data/feedback.xml"));
+                ds.ReadXml(Server.MapPath("~/App_Data/suggestions.xml"));
                 dt = ds.Tables[0];
             }
             else
             {
 
-                ds = new DataSet("user_feedback");
-                dt = new DataTable("user_comments");
-                dt.Columns.Add("name");
-                dt.Columns.Add("email");
-                dt.Columns.Add("comments");
+                ds = new DataSet("user_contact");
+                dt = new DataTable("suggestions");
+                dt.Columns.Add("Name");
+                dt.Columns.Add("Email");
+                dt.Columns.Add("Suggestions");
                 ds.Tables.Add(dt);
             }
             return View();
@@ -51,8 +51,8 @@ namespace StudioBookingApp.Controllers
                 row["comments"] = model.Comments;
                 dt.Rows.Add(row);
                 dt.AcceptChanges();
-                ds.WriteXml(Server.MapPath("~/App_Data/feedback.xml"));
-                ViewData["message"] = "Record inserted successfully";
+                ds.WriteXml(Server.MapPath("~/App_Data/suggestions.xml"));
+                ViewData["message"] = "Record entered successfully";
                 return RedirectToAction("Index", "Home");
             }
 
@@ -62,10 +62,10 @@ namespace StudioBookingApp.Controllers
         public ActionResult ShowFeedback()
         {
             List<ContactModel> list = new List<ContactModel>();
-            if (System.IO.File.Exists(Server.MapPath("~/App_Data/feedback.xml")))
+            if (System.IO.File.Exists(Server.MapPath("~/App_Data/suggestions.xml")))
             {
                 DataSet dataSet = new DataSet();
-                dataSet.ReadXml(Server.MapPath("~/App_Data/feedback.xml"));
+                dataSet.ReadXml(Server.MapPath("~/App_Data/suggestions.xml"));
                 DataTable table = dataSet.Tables[0];
                 foreach (DataRow row in table.Rows)
                 {
@@ -79,7 +79,7 @@ namespace StudioBookingApp.Controllers
             }
             else
             {
-                ViewData["message"] = "User feedback is not recorded";
+                ViewData["message"] = "User suggestion was not recorded";
             }
 
             return View(list);

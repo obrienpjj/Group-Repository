@@ -68,7 +68,7 @@ namespace SampleTemplate.Controllers
                     user.FirstName = dao.CheckLogin(user);
                     if (user.FirstName != null /*|| user.Password=="Password"*/)
                     {
-                        Session["name"] = "Staff";
+                        Session["name"] = user.FirstName;
                         return RedirectToAction("Index", "Home");
                     }
                     else

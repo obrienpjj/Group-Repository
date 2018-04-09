@@ -1,30 +1,56 @@
-﻿@model StudioBookingApp.Models.Reservation
+﻿
+@model StudioBookingApp.Models.Reservation
 @{
     ViewBag.Title = "Index";
 }
-
 <h2>Index</h2>
+@if (Session["name"] != null)
+{<div>
+        @using (Html.BeginForm("Index", "Booking", FormMethod.Post))
+        {
+            <p>
+                @Html.ValidationSummary(false, "", new { @class = "error" })
+            </p>
+            <p>
+                <span class="newline">@Html.LabelFor(u => u.DateCheck)</span>
+                @Html.TextBoxFor(u => u.DateCheck)
+            </p>
+            <p>
+                <input type="submit" value="Check Date" />
+            </p>
+        }
+        @using (Html.BeginForm("BookBook", "Booking", FormMethod.Post))
+        {
 
-<div>
-    @using (Html.BeginForm("Book", "Booking", FormMethod.Post))
-    {
-        <p>
-            @Html.ValidationSummary(false, "", new { @class = "error" })
-        </p>
-        <p>
-            <span class="newline">@Html.LabelFor(u => u.Email)</span>
-            @Html.TextBoxFor(u => u.Email)
-        </p>
-        <p>
-            <span class="newline">@Html.LabelFor(u => u.Password)</span>
-            @Html.TextBoxFor(u => u.Password)
-        </p>
-        <p>
-            <span class="newline">@Html.LabelFor(u => u.Type)</span>
-            @Html.EnumDropDownListFor(u => u.Type, new { style = "width:160px" })
-        </p>
-        <p>
-            <input type="submit" value="Login" />
-        </p>
-    }
-</div>
+            <p>
+                @Html.ValidationSummary(false, "", new { @class = "error" })
+            </p>
+            if (Session["status"] != null)
+            {
+                <p>
+                    <span class="newline">@Html.LabelFor(u => u.BookTime)</span>
+                    @Html.DropDownListFor(u => u.BookTime, new SelectList(Model.Available, new { @class = "form-control" }))
+                </p>
+                <p>
+                    <span class="newline">@Html.LabelFor(u => u.Date)</span>
+                    @Html.TextBoxFor(u => u.Date)
+                </p>
+                @*<p>
+                        <span class="newline">@Html.LabelFor(u => u.Date)</span>
+                        @Html.EditorFor(u => u.Date)
+                    </p>*@
+            }
+            <p>
+                <input type="submit" value="Book" />
+            </p>
+        }
+
+    </div>
+}
+else
+{
+    @Html.ActionLink("Register", "Index", "User", null, new { @class = "register" })
+    @Html.ActionLink("Login /", "Login", "User", null, new { @class = "register" })
+}
+
+
