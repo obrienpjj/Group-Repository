@@ -17,20 +17,7 @@ namespace StudioBookingApp.Controllers
         public ActionResult Index(string session)
         {
             Session["studio"] = session.ToString();
-            //DateTime date = new DateTime();
-            //GetData get = new GetData();
-
-            //DateTime defaultDate = DateTime.Now;
-
-            //IEnumerable<Slot> slots = get.GetSlots(defaultDate); //need to pass date from view
-            //List <Slot> slots = new List<Slot>
-            //            {
-            //                Slot.Morning,
-            //                Slot.Afternoon,
-            //                Slot.Daylong
-            //            };
-            //Reservation reservation = new Reservation();
-            //reservation.Available = slots.AsEnumerable<Slot>();
+            
 
             return View();
         }
@@ -38,24 +25,17 @@ namespace StudioBookingApp.Controllers
         [HttpPost]
         public ActionResult Index(Reservation reservation)
         {
-            //Session["studio"] = "01";
+            
+
             GetData get = new GetData();
             string StudioID = Session["studio"].ToString();
             reservation.StudioID = Session["studio"].ToString();
 
             IEnumerable<string> slots = get.GetSlots(reservation.DateCheck, StudioID);
             reservation.Available = slots;
+            reservation.Date = reservation.DateCheck;
 
-
-
-            //List<string> slotss = new List<string>
-            //            {
-            //                //Slot.Morning,
-            //                //Slot.Afternoon,
-            //                "Daylong"
-            //            };
-
-            //reservation.Available = slotss.AsEnumerable<string>();
+            
             Session["status"] = "clicked";
 
             return View("Index", reservation);
@@ -66,9 +46,8 @@ namespace StudioBookingApp.Controllers
         [HttpPost]
         public ActionResult BookBook(Reservation reservation)
         {
-            //Session["name"] = "Jim";
+            
             reservation.UserID =getData.GetUserID(Session["name"].ToString());
-            //reservation.StudioID = "01"; /* Session["studio"].ToString();*/
             reservation.StudioID = Session["studio"].ToString();
 
             int count = 0;

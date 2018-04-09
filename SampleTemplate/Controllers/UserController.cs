@@ -66,7 +66,7 @@ namespace SampleTemplate.Controllers
                 if (user.Type == Role.Staff)
                 {
                     user.FirstName = dao.CheckLogin(user);
-                    if (user.FirstName != null /*|| user.Password=="Password"*/)
+                    if (user.FirstName != null)
                     {
                         Session["name"] = user.FirstName;
                         return RedirectToAction("Index", "Home");

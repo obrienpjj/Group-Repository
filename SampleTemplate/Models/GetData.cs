@@ -22,9 +22,8 @@ namespace SampleTemplate.Models
         {
             List<Studio> list = new List<Studio>();
             SqlDataReader reader;
-            //SqlCommand cmd = new SqlCommand("uspGetAllStudios", openConnection());
             SqlCommand cmd = new SqlCommand("SELECT * FROM StudioTable", openConnection());
-            //cmd.CommandType = CommandType.StoredProcedure;
+            
             try
             {
                 openConnection();
@@ -36,14 +35,11 @@ namespace SampleTemplate.Models
 
                     studio.StudioID = reader[0].ToString();
                     studio.Name = reader[1].ToString();
-                    //studio.Image = reader[2].ToString();
-                    //Sorin: we need to retrieve the varbinary from the DB
                     using (MemoryStream ms = new MemoryStream((byte[])reader[2]))
                     {
                         studio.Image = ms.ToArray();
                     }
                     studio.Type = reader[3].ToString();
-                    //studio.Status = reader[4].ToString();
                     studio.Description = reader[4].ToString();
                     studio.HourlyRate = decimal.Parse(reader[5].ToString());
                     list.Add(studio);
@@ -112,25 +108,7 @@ namespace SampleTemplate.Models
                 
                 while (reader.Read())
                 {
-                    if (reader[0].ToString() == "Morning" && reader[1].ToString() == "Afternoon")
-                    {
-                        slots = new List<string>
-                        {
-
-                        };
-                        islots = slots.AsEnumerable<string>();
-                        return islots;
-                    }
-                    else if (reader[0].ToString() == "Afternoon" && reader[1].ToString() == "Morning")
-                    {
-                        slots = new List<string>
-                        {
-
-                        };
-                        islots = slots.AsEnumerable<string>();
-                        return islots;
-                    }
-                    else if (reader[0].ToString() == "Morning")
+                    if (reader[0].ToString() == "Morning")
                     {
 
                         slots = new List<string>
@@ -184,10 +162,7 @@ namespace SampleTemplate.Models
             {
                 closeConnnection();
             }
-            //slots = new List<string>
-            //            {
-            //                "Afternoon"
-            //            };
+           
             islots = slots.AsEnumerable<string>();
             return islots;
 

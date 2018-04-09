@@ -11,9 +11,9 @@ namespace StudioBookingApp.Models
     {
         
         public string ReservationID { get; set; }
-        //[Required]
+        
         public string UserID{ get; set; }
-        //[Required]
+        
         public string StudioID { get; set; }
 
         [Display(Name = "Confirm booking date:")]
@@ -30,13 +30,6 @@ namespace StudioBookingApp.Models
         public IEnumerable<string> Available { get; set; }
 
         public Reservation() { }
-
-        //public Reservation(string reservationID, string userID, string studioID, DateTime startTime, DateTime endTime, decimal cost)
-        //{
-        //    ReservationID = ReservationID;
-        //    UserID = userID;
-        //    StudioID = studioID;
-        //    Cost = cost;
-        //}
+        
     }
 }

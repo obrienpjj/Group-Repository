@@ -17,14 +17,6 @@ namespace StudioBookingApp.Models
         
 
         public Studio() { }
-        //public Studio(string studioID, string name, string studioImage, string type, string description, decimal hourlyRate) 
-        //{
-        //    StudioID = studioID;
-        //    Name = name;
-        //    Type = type;
-        //    HourlyRate = hourlyRate;
-        //    Image = studioImage;
-        //    Description = description;
-        //}
+        
     }
 }
