@@ -39,7 +39,7 @@ namespace SampleTemplate.Models
             string password, firstName = null;
             SqlDataReader reader;
             SqlCommand cmd = new SqlCommand("SELECT * FROM UserTable WHERE @email=Email", openConnection()); //Need to make this procedure, return student list for a given email address
-            //cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            
             cmd.Parameters.AddWithValue("@email", user.Email);
 
             
@@ -52,7 +52,7 @@ namespace SampleTemplate.Models
                     password = reader["Pass"].ToString();
                     if (password==user.Password)
                     {
-                        firstName = reader["FirstName"].ToString(); //The text in quotes needs to match what is in the Sql Stored Procedure
+                        firstName = reader["FirstName"].ToString();
 
                     }
                     else

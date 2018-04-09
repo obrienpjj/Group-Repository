@@ -9,8 +9,7 @@ namespace StudioBookingApp.Models
 {
     public class User
     {
-        //[Required]
-        //public string UserID { get; set; }  //Primary Key in DB
+        
         [Required]
         [RegularExpression("[A-Za-z]+")]
         [Display(Name = "First Name")]
@@ -60,17 +59,7 @@ namespace StudioBookingApp.Models
         public string ConfirmPassword { get; set; }
 
         public User() { }
-
-        //public User(string userID, string firstName, string lastName, string email, string password, string phone)
-
-        //{
-        //    UserID = userID;
-        //    FirstName = firstName;
-        //    LastName = lastName;
-        //    Email = email;
-        //    Password = password;
-        //    Phone = phone;
-        //}
+        
     }
 
 

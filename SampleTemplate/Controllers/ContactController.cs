@@ -46,9 +46,9 @@ namespace StudioBookingApp.Controllers
                 {
                     row["name"] = "name not entered";
                 }
-                else row["name"] = model.Name;
-                row["email"] = model.Email;
-                row["comments"] = model.Comments;
+                else row["Name"] = model.Name;
+                row["Email"] = model.Email;
+                row["Suggestions"] = model.Comments;
                 dt.Rows.Add(row);
                 dt.AcceptChanges();
                 ds.WriteXml(Server.MapPath("~/App_Data/suggestions.xml"));

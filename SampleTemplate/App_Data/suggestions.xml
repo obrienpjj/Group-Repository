@@ -1,0 +1,23 @@
+<?xml version="1.0" standalone="yes"?>
+<user_contact>
+  <suggestions>
+    <Name>Joe</Name>
+    <Email>myemail@dbs.ie</Email>
+    <Suggestions>THIS WEBSITE IS UNREAL</Suggestions>
+  </suggestions>
+  <suggestions>
+    <Name>Jim</Name>
+    <Email>well@boy.ie</Email>
+    <Suggestions>awdawd</Suggestions>
+  </suggestions>
+  <suggestions>
+    <Name>Name</Name>
+    <Email>sampleemail@yahoo.ie</Email>
+    <Suggestions>Comments</Suggestions>
+  </suggestions>
+  <suggestions>
+    <Name>Name</Name>
+    <Email>email@email.com</Email>
+    <Suggestions>Sample text</Suggestions>
+  </suggestions>
+</user_contact>

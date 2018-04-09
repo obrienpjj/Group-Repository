@@ -21,10 +21,10 @@ namespace SampleTemplate.Models
         public int InsertUser(User user)
         {
             int count = 0;
-            //string password;
+            
 
             SqlCommand cmd = new SqlCommand("INSERT INTO UserTable (FirstName, LastName, AddressLine1, AddressLine2, County, EIRCode, Email, Phone, Pass, UserType) VALUES (@FirstName, @LastName, @AddressLine1, @AddressLine2, @County, @EIRCode, @Email, @Phone, @Pass, @UserType)", openConnection());
-            //cmd.CommandType = CommandType.StoredProcedure;
+            
             cmd.Parameters.AddWithValue("@FirstName", user.FirstName);
             cmd.Parameters.AddWithValue("@LastName", user.LastName);
             cmd.Parameters.AddWithValue("@AddressLine1", user.AddressLine1);
@@ -33,7 +33,6 @@ namespace SampleTemplate.Models
             cmd.Parameters.AddWithValue("@EIRCode", user.Eircode);
             cmd.Parameters.AddWithValue("@Email", user.Email);
             cmd.Parameters.AddWithValue("@Phone", user.Phone);
-            //password = Crypto.HashPassword(user.Password);
             cmd.Parameters.AddWithValue("@Pass", user.Password);
             cmd.Parameters.AddWithValue("@UserType", user.Type);
 

@@ -2,24 +2,27 @@
 @{
     ViewBag.Title = "Studios";
 }
+<meta name="keywords" content="Studio, Rehearsal, Booking, Reservation, Legacy Studios, browse studios">
+<meta name="description" content="Browse studios using the Legacy Studios application">
+<meta name="author" content="Keith O'Brien, Patrick O'Brien, Sorin Dumitrascu">
 <h2 class="heading">OUR STUDIOS</h2>
 <div>
     @foreach (var studio in Model)
     {
-    <section>
-        <p><img id= "bookNowButton" alt = "@studio.Image" src = "data:image;base64,@System.Convert.ToBase64String(studio.Image)" width = "220" class="right" /></p>
-        <p>
-            <h3>@studio.Name</h3>
-            <span class="newline">@studio.Name</span>
-            <span class="newline">€@studio.HourlyRate per session (All day counts as two sessions)</span>
-            <span class="newline">@studio.Description</span>
-            @* I have modified the img so that it will get the picture from the DB *@
-            <a href="@Url.Action("Index", "Booking", new { session = studio.StudioID.ToString()})">
-                <img id="bookNowButton" alt="@studio.Image" src="~/Content/Images/booknow.png" width="220" class="right" />
-            </a>
-        </p>
-        <br class="clear" />
-    </section>
+        <section>
+            <p><img id="bookNowButton" alt="@studio.Image" src="data:image;base64,@System.Convert.ToBase64String(studio.Image)" width="220" class="right" /></p>
+            <p>
+                <h3>@studio.Name</h3>
+                <span class="newline">@studio.Name</span>
+                <span class="newline">€@studio.HourlyRate per session (All day counts as two sessions)</span>
+                <span class="newline">@studio.Description</span>
+                @* I have modified the img so that it will get the picture from the DB *@
+                <a href="@Url.Action("Index", "Booking", new { session = studio.StudioID.ToString()})">
+                    <img id="bookNowButton" alt="@studio.Image" src="~/Content/Images/booknow.png" width="220" class="right" />
+                </a>
+            </p>
+            <br class="clear" />
+        </section>
         <hr />
     }
 </div>
